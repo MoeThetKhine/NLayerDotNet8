@@ -17,6 +17,8 @@ namespace PresentationLayer.Controllers
         {
             _bL_Blog = bL_Blog;
         }
+        #region Get
+
         [HttpGet]
         public async Task<IActionResult> GetBlogs()
         {
@@ -29,8 +31,12 @@ namespace PresentationLayer.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        #endregion
+
+        #region Put
         [HttpPut]
-        public async Task<IActionResult> CreateBlog([FromBody]BlogRequestModel requestModel)
+        public async Task<IActionResult> CreateBlog([FromBody] BlogRequestModel requestModel)
         {
             try
             {
@@ -38,17 +44,21 @@ namespace PresentationLayer.Controllers
 
                 return result > 0 ? Created() : BadRequest(MessageResource.SaveFail);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
         }
+        #endregion
+
+        #region Patch
+
         [HttpPatch("{id}")]
-        public async Task<IActionResult> PatchBlog([FromBody] BlogRequestModel requestModel,int id)
+        public async Task<IActionResult> PatchBlog([FromBody] BlogRequestModel requestModel, int id)
         {
             try
             {
-                int result = await _bL_Blog.PatchBlog(requestModel,id);
+                int result = await _bL_Blog.PatchBlog(requestModel, id);
 
                 return result > 0 ? Updated() : BadRequest(MessageResource.SaveFail);
             }
@@ -57,6 +67,10 @@ namespace PresentationLayer.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        #endregion
+
+        #region Delete
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBlog(int id)
         {
@@ -71,5 +85,8 @@ namespace PresentationLayer.Controllers
                 throw new Exception(ex.Message);
             }
         }
+        #endregion
+
+
     }
 }
