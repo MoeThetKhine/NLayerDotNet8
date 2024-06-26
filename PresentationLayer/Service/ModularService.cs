@@ -21,7 +21,8 @@ namespace PresentationLayer.Service
 
         #endregion
 
-        private static IServiceCollection AddDbContextService(this IServiceCollection services,WebApplicationBuilder builder)
+        #region AddDbContextService
+        private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
         {
             builder.Services.AddDbContext<AppDbContext>(opt =>
             {
@@ -29,6 +30,9 @@ namespace PresentationLayer.Service
             }, ServiceLifetime.Transient);
             return services;
         }
+        #endregion
+
+
         private static IServiceCollection AddBusinessLogicServices(this IServiceCollection services)
         {
             services.AddScoped<BL_Blog>();
