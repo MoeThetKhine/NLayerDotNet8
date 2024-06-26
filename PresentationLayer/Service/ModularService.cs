@@ -32,12 +32,16 @@ namespace PresentationLayer.Service
         }
         #endregion
 
-
+        #region AddBusinessLogicServices
         private static IServiceCollection AddBusinessLogicServices(this IServiceCollection services)
         {
             services.AddScoped<BL_Blog>();
             return services;
         }
+        #endregion
+
+
+
         private static IServiceCollection AddDataAccessService(this IServiceCollection services)
         {
             services.AddScoped<DA_Blog>();
