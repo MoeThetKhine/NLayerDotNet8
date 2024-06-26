@@ -57,7 +57,6 @@ namespace PresentationLayer.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBlog(int id)
         {
