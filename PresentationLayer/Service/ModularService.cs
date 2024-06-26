@@ -40,13 +40,17 @@ namespace PresentationLayer.Service
         }
         #endregion
 
-
-
+        #region AddDataAccessService
         private static IServiceCollection AddDataAccessService(this IServiceCollection services)
         {
             services.AddScoped<DA_Blog>();
             return services;
         }
+
+        #endregion
+
+
+
         private static IServiceCollection AddJsonServices(this IServiceCollection services)
         {
             services.AddControllers().AddJsonOptions(opt =>
