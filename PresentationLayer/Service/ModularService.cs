@@ -42,6 +42,5 @@ namespace PresentationLayer.Service
             });
             return services;
         }
-
     }
 }
