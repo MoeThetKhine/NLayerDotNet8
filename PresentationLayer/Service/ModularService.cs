@@ -15,7 +15,6 @@ namespace PresentationLayer.Service
             services.AddJsonServices();
 
             return services;
-
         }
         private static IServiceCollection AddDbContextService(this IServiceCollection services,WebApplicationBuilder builder)
         {
