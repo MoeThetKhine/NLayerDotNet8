@@ -7,7 +7,9 @@ namespace PresentationLayer.Service
 {
     public static class ModularService
     {
-        public static IServiceCollection AddServices(this IServiceCollection services,WebApplicationBuilder builder)
+        #region AddServices
+
+        public static IServiceCollection AddServices(this IServiceCollection services, WebApplicationBuilder builder)
         {
             services.AddDbContextService(builder);
             services.AddBusinessLogicServices();
@@ -16,6 +18,9 @@ namespace PresentationLayer.Service
 
             return services;
         }
+
+        #endregion
+
         private static IServiceCollection AddDbContextService(this IServiceCollection services,WebApplicationBuilder builder)
         {
             builder.Services.AddDbContext<AppDbContext>(opt =>
