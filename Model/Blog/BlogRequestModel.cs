@@ -9,5 +9,6 @@ namespace Model.Blog
     public class BlogRequestModel
     {
 
+
     }
 }
