@@ -11,7 +11,6 @@ namespace BusinessLogic
     public class BL_Blog
     {
         private readonly DA_Blog _dA_Blog;
-
         public BL_Blog(DA_Blog dA_Blog)
         {
             _dA_Blog = dA_Blog;
