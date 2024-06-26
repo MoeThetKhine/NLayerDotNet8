@@ -49,8 +49,7 @@ namespace PresentationLayer.Service
 
         #endregion
 
-
-
+        #region AddJsonServices
         private static IServiceCollection AddJsonServices(this IServiceCollection services)
         {
             services.AddControllers().AddJsonOptions(opt =>
@@ -59,5 +58,11 @@ namespace PresentationLayer.Service
             });
             return services;
         }
+
+        #endregion
+
+
+
+
     }
 }
