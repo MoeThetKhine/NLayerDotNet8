@@ -72,7 +72,6 @@ namespace DataAccess
                 _appDbContext.Entry(item).State = EntityState.Modified;
                 return await _appDbContext.SaveChangesAsync();  
             }
-
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
