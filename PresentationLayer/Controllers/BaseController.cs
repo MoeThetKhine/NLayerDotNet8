@@ -25,6 +25,5 @@ namespace PresentationLayer.Controllers
         {
             return StatusCode(202, MessageResource.DeleteSuccess);
         }
-
     }
 }
