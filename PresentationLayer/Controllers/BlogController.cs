@@ -4,12 +4,13 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using Model.Setup.Blog;
+using PresentationLayer.Resources;
 
 namespace PresentationLayer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogController : ControllerBase
+    public class BlogController : BaseController
     {
         private readonly BL_Blog _bL_Blog;
 
@@ -22,7 +23,7 @@ namespace PresentationLayer.Controllers
         {
             try
             {
-                return Ok(await _bL_Blog.GetBlogs());
+                return Content(await _bL_Blog.GetBlogs());
             }
             catch (Exception ex)
             {
@@ -36,7 +37,7 @@ namespace PresentationLayer.Controllers
             {
                 int result = await _bL_Blog.CreateBlog(requestModel);
 
-                return result > 0 ? StatusCode(201, "Saving Successful") : BadRequest("Saving Fail");
+                return result > 0 ? Created() : BadRequest(MessageResource.SaveFail);
             }
             catch(Exception ex)
             {
@@ -50,7 +51,7 @@ namespace PresentationLayer.Controllers
             {
                 int result = await _bL_Blog.PatchBlog(requestModel,id);
 
-                return result > 0 ? StatusCode(202, "Saving Successful") : BadRequest("Saving Fail");
+                return result > 0 ? Updated() : BadRequest(MessageResource.SaveFail);
             }
             catch (Exception ex)
             {
@@ -65,7 +66,7 @@ namespace PresentationLayer.Controllers
             {
                 int result = await _bL_Blog.DeleteBlog(id);
 
-                return result > 0 ? StatusCode(202, "Deleting Successful") : BadRequest("Deleting Fail");
+                return result > 0 ? Deleted() : BadRequest(MessageResource.DeleteFail);
             }
             catch (Exception ex)
             {
